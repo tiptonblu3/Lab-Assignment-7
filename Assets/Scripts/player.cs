@@ -1,11 +1,13 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
+
 public class player : MonoBehaviour
 {
     [Header("Basic Stats")]
-    public float health;
+    public float health = 5;
     public float attack;
     public float defense;
     public float speed = 5;
@@ -17,6 +19,9 @@ public class player : MonoBehaviour
     [Header("Movement Settings")]
     public Vector2 movementInput;
     public Rigidbody rb;
+
+    [Header("UI References")]
+    public TextMeshProUGUI healthText; // 2. Create the reference
 
     private void OnMove(InputValue inputValue)
     {
@@ -39,15 +44,13 @@ public class player : MonoBehaviour
         rb.linearVelocity = new Vector3(moveDir.x * speed, rb.linearVelocity.y, moveDir.z * speed);
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
+   
     // Update is called once per frame
     void Update()
     {
-        
+        if (healthText != null)
+        {
+            healthText.text = "Health: " + health.ToString("F0");
+        }
     }
 }
