@@ -37,7 +37,13 @@ public class enemy : MonoBehaviour
     {
         Debug.Log(EnemyMonster.isOnNavMesh);
         EnemyMonster.stoppingDistance = 0f;
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+
+        Player = playerObj.transform;
+        player = playerObj.GetComponent<player>(); // adding these two lines ensures clones of enemy object can hit the player as well
+
+        
     }
 
     // Update is called once per frame
@@ -55,6 +61,7 @@ public class enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {   
+        
         if(collider.CompareTag("Player")) // Checks for whether object is player
         {
             player p = collider.GetComponent<player>(); // this allows us to set it so that player can take enemy attack in consideration when getting attacked
