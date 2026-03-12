@@ -3,7 +3,10 @@ using UnityEngine;
 public class WeaponType
 {
     
-    
+    public int abilityType; // can be equal from 1-4 to represent what weapon does
+    public int weaponType;
+    public int tier;
+
     
     
     
