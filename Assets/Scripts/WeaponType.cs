@@ -9,7 +9,9 @@ public class WeaponType : MonoBehaviour
     public float area;
 
     [Header("Settings")]
-    public int tier; // Set this in the Inspector
+    public int bladeTier;
+    public int vacuumTier;
+
 
     void Start()
     {
@@ -18,8 +20,9 @@ public class WeaponType : MonoBehaviour
 
     public void InitializeWeapon()
     {
+        #region === Blades ===
         // Using the 'tier' variable set in the Inspector
-        switch (tier)
+        switch (bladeTier)
         {
             case 1: // Tier 1
                 damage = 1;
@@ -27,7 +30,7 @@ public class WeaponType : MonoBehaviour
                 projectileSpeed = 1;
                 area = 1;
                 break;
-                
+
             case 2: // Tier 2
                 damage = 1;
                 cooldown = 1;
@@ -57,5 +60,48 @@ public class WeaponType : MonoBehaviour
                 area = 1;
                 break;
         }
+        #endregion === Blades ===
+
+        #region === Vacuum ===
+        // Using the 'tier' variable set in the Inspector
+        switch (vaccumTier)
+        {
+            case 1: // Tier 1
+                damage = 1;
+                cooldown = 1;
+                projectileSpeed = 1;
+                area = 1;
+                break;
+
+            case 2: // Tier 2
+                damage = 1;
+                cooldown = 1;
+                projectileSpeed = 1;
+                area = 1;
+                break;
+
+            case 3: // Tier 3
+                damage = 1;
+                cooldown = 1;
+                projectileSpeed = 1;
+                area = 1;
+                break;
+
+            case 4: // Tier 4
+                damage = 1;
+                cooldown = 1;
+                projectileSpeed = 1;
+                area = 1;
+                break;
+
+            default:
+                Debug.LogWarning("Tier " + tier + " not defined! Using base stats.");
+                damage = 1;
+                cooldown = 1;
+                projectileSpeed = 1;
+                area = 1;
+                break;
+        }
+        #endregion === Vacuum ===
     }
 }
