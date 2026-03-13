@@ -27,7 +27,7 @@ public class WeaponType : MonoBehaviour
         // Using the 'tier' variable set in the Inspector
         switch (bladeTier)
         {
-            case 1: // Tier 1
+            case 1: // Tier 1 +2 Blades
                 damage = 1;
                 cooldown = 1;
                 projectileSpeed = 1;
@@ -35,25 +35,28 @@ public class WeaponType : MonoBehaviour
                 bladeCost = 1;
                 break;
 
-            case 2: // Tier 2
+            case 2: // Tier 2 +2 Blades
                 damage = 1;
                 cooldown = 1;
                 projectileSpeed = 1;
                 area = 1;
+                bladeCost = 1;
                 break;
 
-            case 3: // Tier 3
+            case 3: // Tier 3 +2 Blades
                 damage = 1;
                 cooldown = 1;
                 projectileSpeed = 1;
                 area = 1;
+                bladeCost = 1;
                 break;
 
-            case 4: // Tier 4
+            case 4: // Tier 4 +2 Blades
                 damage = 1;
                 cooldown = 1;
                 projectileSpeed = 1;
                 area = 1;
+                bladeCost = 1;
                 break;
 
             default:
