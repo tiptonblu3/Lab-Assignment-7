@@ -32,6 +32,8 @@ public class StoreManager : MonoBehaviour
         souls = player.GetComponent<player>().souls; // Updates Player Souls
         bladeCost = player.GetComponent<WeaponType>().bladeCost; // Updates Cost
         vacuumCost = player.GetComponent<WeaponType>().vacuumCost; // Updates Cost
+        // after a few seconds open store
+
     }
     void OnTriggerExit(Collision collision)
     {
