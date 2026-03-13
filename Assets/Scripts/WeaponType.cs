@@ -21,13 +21,13 @@ public class WeaponType : MonoBehaviour
         InitializeWeapon();
     }
 
-    public void InitializeWeapon()
+    public void InitializeWeapon() // These need a cap or they will break
     {
         #region === Blades ===
         // Using the 'tier' variable set in the Inspector
         switch (bladeTier)
         {
-            case 1: // Tier 1 +2 Blades
+            case 1: // Tier 1 +2 Blades Base
                 damage = 1;
                 cooldown = 1;
                 projectileSpeed = 1;
@@ -73,7 +73,7 @@ public class WeaponType : MonoBehaviour
         // Using the 'tier' variable set in the Inspector
         switch (vacuumTier)
         {
-            case 1: // Tier 1
+            case 1: // Tier 1 Base
                 damage = 1;
                 cooldown = 1;
                 projectileSpeed = 1;
