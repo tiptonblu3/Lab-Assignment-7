@@ -11,7 +11,10 @@ public class WeaponType : MonoBehaviour
     [Header("Settings")]
     public int bladeTier;
     public int vacuumTier;
+    public int bladeCost;
+    public int vacuumCost;
 
+    
 
     void Start()
     {
@@ -29,6 +32,7 @@ public class WeaponType : MonoBehaviour
                 cooldown = 1;
                 projectileSpeed = 1;
                 area = 1;
+                bladeCost = 1;
                 break;
 
             case 2: // Tier 2
@@ -71,6 +75,7 @@ public class WeaponType : MonoBehaviour
                 cooldown = 1;
                 projectileSpeed = 1;
                 area = 1;
+                vacuumCost = 1;
                 break;
 
             case 2: // Tier 2
@@ -78,6 +83,7 @@ public class WeaponType : MonoBehaviour
                 cooldown = 1;
                 projectileSpeed = 1;
                 area = 1;
+                vacuumCost = 1;
                 break;
 
             case 3: // Tier 3
@@ -85,6 +91,7 @@ public class WeaponType : MonoBehaviour
                 cooldown = 1;
                 projectileSpeed = 1;
                 area = 1;
+                vacuumCost = 1;
                 break;
 
             case 4: // Tier 4
@@ -92,6 +99,7 @@ public class WeaponType : MonoBehaviour
                 cooldown = 1;
                 projectileSpeed = 1;
                 area = 1;
+                vacuumCost = 1;
                 break;
 
             default:
