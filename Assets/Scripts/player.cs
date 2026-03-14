@@ -8,7 +8,7 @@ public class player : MonoBehaviour
 {
     [Header("Basic Stats")]
     public float health = 5;
-    public float attack;
+    //public float attack;
     public float defense;
     public float speed = 5;
     public float ultimate = 0;
@@ -23,10 +23,14 @@ public class player : MonoBehaviour
     public Rigidbody rb;
     private Vector3 moveDirection;
 
+    [Header("Shop Stuff")]
+    public int souls;
+
 
     [Header("GameObjects")]
     public Transform Enemy;
     public gameManager Manager;
+    // public enemy EnemyRival;
 
 
     [Header("UI References")]
@@ -73,7 +77,7 @@ public class player : MonoBehaviour
     }
     }
 
-    public void takeDamage(float enemyAttack)
+    public void takeDamage(float enemyAttack) // next objective, make player take damage every frame
     {
         // Health, enemy attack, and defense are taken into consideration
         // When hit, damage is subtracted by player defense, then that total is subtracted from the total health of the player

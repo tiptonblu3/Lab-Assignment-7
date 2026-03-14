@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class WeaponType : MonoBehaviour
 {
+    // all elements in this script are shared across the Blade and Vacuum type scripts, so they were left here for organization purposes.
+    
+    
     [Header("Basic Stats")]
     public float damage;
     public float cooldown;
@@ -14,105 +17,17 @@ public class WeaponType : MonoBehaviour
     public int bladeCost;
     public int vacuumCost;
 
+    [Header("Weapon Hitboxes")]
+    public Collider bladeCollider;
+    public Collider vacuumCollider;
+
+
     
 
     void Start()
     {
-        InitializeWeapon();
+        
     }
+    
 
-    public void InitializeWeapon() // These need a cap or they will break
-    {
-        #region === Blades ===
-        // Using the 'tier' variable set in the Inspector
-        switch (bladeTier)
-        {
-            case 1: // Tier 1 +2 Blades Base
-                damage = 1;
-                cooldown = 1;
-                projectileSpeed = 1;
-                area = 1;
-                bladeCost = 1;
-                break;
-
-            case 2: // Tier 2 +2 Blades
-                damage = 1;
-                cooldown = 1;
-                projectileSpeed = 1;
-                area = 1;
-                bladeCost = 1;
-                break;
-
-            case 3: // Tier 3 +2 Blades
-                damage = 1;
-                cooldown = 1;
-                projectileSpeed = 1;
-                area = 1;
-                bladeCost = 1;
-                break;
-
-            case 4: // Tier 4 +2 Blades
-                damage = 1;
-                cooldown = 1;
-                projectileSpeed = 1;
-                area = 1;
-                bladeCost = 1;
-                break;
-
-            default:
-                Debug.LogWarning("Tier " + bladeTier + " not defined! Using base stats.");
-                damage = 1;
-                cooldown = 1;
-                projectileSpeed = 1;
-                area = 1;
-                break;
-        }
-        #endregion === Blades ===
-
-        #region === Vacuum ===
-        // Using the 'tier' variable set in the Inspector
-        switch (vacuumTier)
-        {
-            case 1: // Tier 1 Base
-                damage = 1;
-                cooldown = 1;
-                projectileSpeed = 1;
-                area = 1;
-                vacuumCost = 1;
-                break;
-
-            case 2: // Tier 2
-                damage = 1;
-                cooldown = 1;
-                projectileSpeed = 1;
-                area = 1;
-                vacuumCost = 1;
-                break;
-
-            case 3: // Tier 3
-                damage = 1;
-                cooldown = 1;
-                projectileSpeed = 1;
-                area = 1;
-                vacuumCost = 1;
-                break;
-
-            case 4: // Tier 4
-                damage = 1;
-                cooldown = 1;
-                projectileSpeed = 1;
-                area = 1;
-                vacuumCost = 1;
-                break;
-
-            default:
-                Debug.LogWarning("Tier " + vacuumTier + " not defined! Using base stats.");
-                damage = 1;
-                cooldown = 1;
-                projectileSpeed = 1;
-                area = 1;
-                break;
-        }
-        #endregion === Vacuum ===
-    }
 }

@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class enemy : MonoBehaviour
 {
+    
+    
     [Header("Basic Stats")]
     public float health;
     public float attack;
@@ -14,7 +16,10 @@ public class enemy : MonoBehaviour
     public NavMeshAgent EnemyMonster;
     public Transform Player;
     public player player;
+    public WeaponType weapons;
     public Collider collider;
+    public GameObject Enemy;
+
 
     [Header("Attack Stuff")]
     public float attackSpeed;
@@ -68,5 +73,40 @@ public class enemy : MonoBehaviour
             Debug.Log("Enemy hit player!");
             p.takeDamage(attack); // player gets damaged when making contact with the enemy's collider box.
         }
+    }
+
+    public void BladeDamage(float BladeAttack)
+    {
+        // Basically the same thing as player but for the enemy script instead
+    
+        float damage = Mathf.Max(BladeAttack - defense, 0); // defense is taken into account
+        health -= damage; // health is subtracted based on enemy attack stats
+        
+        
+
+        if (health <= 0) // prevents health from going below zero.
+        {
+            health = 0;
+            Destroy(this.gameObject); //Enemy is dead, we have no use for it, so we destroy the game object.
+
+        }
+
+    }
+
+    public void VacuumDamage(float VacuumAttack) // next objective: Make attacks cooldown based
+    {
+        // Basically the same thing as player but for the enemy script instead
+        
+        float damage = Mathf.Max(VacuumAttack - defense, 0); // defense is taken into account
+        health -= damage; // health is subtracted based on enemy attack stats
+
+        if (health <= 0) // prevents health from going below zero.
+        {
+            health = 0;
+            EnemyMonster.enabled = false;
+            Destroy(this.gameObject); //Enemy is dead, we have no use for it, so we destroy the game object.
+
+        }
+
     }
 }

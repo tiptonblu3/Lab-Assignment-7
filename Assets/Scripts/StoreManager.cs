@@ -5,10 +5,11 @@ public class StoreManager : MonoBehaviour
     public int souls;
     public int bladeCost;
     public int vacuumCost;
-    public gameobject player;
+    public GameObject player;
     private void InitializeWeapon()
     {
-        player.GetComponent<WeaponType>().InitializeWeapon();
+        player.GetComponent<BladeType>().InitializeWeapon();
+        player.GetComponent<VacuumType>().InitializeWeapon();
     }
 
 
@@ -27,7 +28,7 @@ public class StoreManager : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         souls = player.GetComponent<player>().souls; // Updates Player Souls
         bladeCost = player.GetComponent<WeaponType>().bladeCost; // Updates Cost
@@ -35,7 +36,7 @@ public class StoreManager : MonoBehaviour
         // after a few seconds open store
 
     }
-    void OnTriggerExit(Collision collision)
+    void OnTriggerExit(Collider collision)
     {
         InitializeWeapon(); // On leaving the store weapons are updated
     }
@@ -45,7 +46,7 @@ public class StoreManager : MonoBehaviour
         if (souls >= vacuumCost)
         {
             souls -= vacuumCost;
-            player.GetComponent<WeaponType>().vacuumTier++;
+            player.GetComponent<VacuumType>().vacuumTier++;
         }
     }
 
@@ -54,7 +55,7 @@ public class StoreManager : MonoBehaviour
         if (souls >= bladeCost)
         {
             souls -= bladeCost;
-            player.GetComponent<WeaponType>().bladeTier++;
+            player.GetComponent<BladeType>().bladeTier++;
         }
     }
 
