@@ -1086,6 +1086,26 @@ PrefabInstance:
       propertyPath: damage
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6377470697804122772, guid: eef7c2e8213ce7f4aae53c2fa04d3d1c, type: 3}
+      propertyPath: m_Height
+      value: 1.8785625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377470697804122772, guid: eef7c2e8213ce7f4aae53c2fa04d3d1c, type: 3}
+      propertyPath: m_Radius
+      value: 0.8433217
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377470697804122772, guid: eef7c2e8213ce7f4aae53c2fa04d3d1c, type: 3}
+      propertyPath: m_Center.x
+      value: -0.30000043
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377470697804122772, guid: eef7c2e8213ce7f4aae53c2fa04d3d1c, type: 3}
+      propertyPath: m_Center.y
+      value: -0.54838634
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377470697804122772, guid: eef7c2e8213ce7f4aae53c2fa04d3d1c, type: 3}
+      propertyPath: m_Center.z
+      value: -0.32492948
+      objectReference: {fileID: 0}
     - target: {fileID: 6967615858061453804, guid: eef7c2e8213ce7f4aae53c2fa04d3d1c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
