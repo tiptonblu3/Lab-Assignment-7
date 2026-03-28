@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class SkillManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class SkillManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Q)) //PLACEHOLDER KEYS, MAKE JORDON CHANGE THEM.
         {
             abilities[0].Activate();
@@ -26,5 +28,13 @@ public class SkillManager : MonoBehaviour
             abilities[1].Activate();
             // activates AOE
         }
+        */
+    }
+
+    public void OnInteract(InputValue value)
+    {
+        if (!value.isPressed) return;
+
+        abilities[0].Activate();
     }
 }
