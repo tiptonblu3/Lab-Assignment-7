@@ -21,10 +21,15 @@ public class enemy : MonoBehaviour
     public WeaponType weapons;
     public Collider collider;
     public GameObject Enemy;
-
+    
 
     [Header("Attack Stuff")]
     public float attackSpeed;
+
+    [Header("EXP Drop")]
+    public int expMin = 1;
+    public int expMax = 5;
+    public GameObject expPrefab;
 
     // Notes:
     /*
@@ -93,6 +98,7 @@ public class enemy : MonoBehaviour
         if (health <= 0) // prevents health from going below zero.
         {
             health = 0;
+            SpawnEXP();
             Destroy(this.gameObject); //Enemy is dead, we have no use for it, so we destroy the game object.
 
         }
@@ -110,9 +116,26 @@ public class enemy : MonoBehaviour
         {
             health = 0;
             EnemyMonster.enabled = false;
+            SpawnEXP();
             Destroy(this.gameObject); //Enemy is dead, we have no use for it, so we destroy the game object.
             
         }
 
+    }
+
+    private void SpawnEXP()
+    {
+        if (expPrefab == null)
+        {
+            Debug.LogWarning("EXP prefab not assigned!");
+            return;
+        }
+
+        int expCount = Random.Range(expMin, expMax + 1);
+        for (int i = 0; i < expCount; i++)
+        {
+            Vector3 spawnPos = transform.position + Random.insideUnitSphere * 1f;
+            Instantiate(expPrefab, spawnPos, Quaternion.identity);
+        }
     }
 }

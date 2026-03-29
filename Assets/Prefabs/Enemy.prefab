@@ -51,6 +51,7 @@ MonoBehaviour:
   attack: 1
   defense: 0
   speed: 2
+  enemyCooldown: 2
   EnemyMonster: {fileID: 4739822849805755670}
   Player: {fileID: 0}
   player: {fileID: 0}
@@ -58,6 +59,9 @@ MonoBehaviour:
   collider: {fileID: 309837382562847078}
   Enemy: {fileID: 8712538429233909210}
   attackSpeed: 2
+  expMin: 1
+  expMax: 5
+  expPrefab: {fileID: 7655012371899821470, guid: cee26fc5951e9ac48901f6d888a5ee6e, type: 3}
 --- !u!195 &4739822849805755670
 NavMeshAgent:
   m_ObjectHideFlags: 0

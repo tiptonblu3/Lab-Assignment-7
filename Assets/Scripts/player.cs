@@ -13,6 +13,7 @@ public class player : MonoBehaviour
     public float speed = 5;
     public float ultimate = 0;
     public float rotationSpeed = 320f; // Rotation speed in degrees per second
+    public float exp = 0;
 
     [Header("Attack Stuff")]
     public float attackSpeed;
