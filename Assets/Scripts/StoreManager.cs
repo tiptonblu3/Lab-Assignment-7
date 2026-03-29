@@ -9,6 +9,7 @@ public class StoreManager : MonoBehaviour
     public GameObject blade;
     public GameObject vacuum;
     public GameObject Shop;
+    public GameObject UIButtons; 
     private float storeOpenTime;
     private bool shopOpened = false;
 
@@ -33,6 +34,7 @@ public class StoreManager : MonoBehaviour
         if (!shopOpened && storeOpenTime > 0 && Time.time >= storeOpenTime + 1.5f)
         {
             Shop.SetActive(true);
+            UIButtons.SetActive(false);
             Time.timeScale = 0f; // Pause game
             Debug.Log("Store Opened");
             shopOpened = true;
@@ -58,6 +60,7 @@ public class StoreManager : MonoBehaviour
     {
         InitializeWeapon(); // On leaving the store weapons are updated
         Shop.SetActive(false);
+        UIButtons.SetActive(true); // Deactivate UI buttons when leaving the store
         shopOpened = false;
         storeOpenTime = 0; // Reset timer so shop can't reopen
         Debug.Log("Store Closed");
@@ -65,6 +68,7 @@ public class StoreManager : MonoBehaviour
     public void CloseShop()
     {
         Shop.SetActive(false);
+        UIButtons.SetActive(true);
         shopOpened = false;
         storeOpenTime = 0;
         Debug.Log("Store Closed");
