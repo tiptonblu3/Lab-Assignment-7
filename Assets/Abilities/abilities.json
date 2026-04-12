@@ -1,0 +1,5 @@
+[
+  { "name": "Dash", "projectileSpeed": 0, "cooldown": 0, "damage": 0 },
+  { "name": "Blade", "projectileSpeed": 15, "cooldown": 1, "damage": 10 },
+  { "name": "Vacuum", "projectileSpeed": , "cooldown": 20, "power": 0 }
+]
