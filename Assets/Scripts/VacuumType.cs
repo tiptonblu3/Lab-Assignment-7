@@ -50,7 +50,7 @@ public class VacuumType : WeaponType
                 break;
 
             default:
-                Debug.LogWarning("Tier " + vacuumTier + " not defined! Using base stats.");
+                //Debug.LogWarning("Tier " + vacuumTier + " not defined! Using base stats.");
                 damage = 10;
                 cooldown = 1;
                 projectileSpeed = 15;

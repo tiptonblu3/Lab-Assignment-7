@@ -44,7 +44,7 @@ public class BladeType : WeaponType
                 break;
 
             default:
-                Debug.LogWarning("Tier " + bladeTier + " not defined! Using base stats.");
+                //Debug.LogWarning("Tier " + bladeTier + " not defined! Using base stats.");
                 damage = 3;
                 cooldown = 1;
                 projectileSpeed = 1;
