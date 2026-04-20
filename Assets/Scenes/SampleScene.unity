@@ -3573,9 +3573,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8915953062920831143}
-        m_TargetAssemblyTypeName: SceneReloader, Assembly-CSharp
-        m_MethodName: RestartScene
+      - m_Target: {fileID: 8915953062920831146}
+        m_TargetAssemblyTypeName: SaveState, Assembly-CSharp
+        m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4707,6 +4707,7 @@ MonoBehaviour:
     ultimate: 0
     health: 0
   Player: {fileID: 0}
+  screl: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
