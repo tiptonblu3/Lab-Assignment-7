@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Lab-Assignment-7.slnx"
+    "dotnet.defaultSolution": "RoombRoombGame.slnx"
 }

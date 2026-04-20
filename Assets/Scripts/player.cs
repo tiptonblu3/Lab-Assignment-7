@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -17,6 +18,9 @@ public class player : MonoBehaviour
     
     [Header("Abilities")]
     public List<Ability> abilities; // Drag your assets here in the Inspector
+
+    public static event Action<float> OnHealthChanged;
+    public static event Action OnDeath;
 
     [Header("Attack Stuff")]
     public float attackSpeed;
@@ -91,20 +95,28 @@ public class player : MonoBehaviour
         float damage = Mathf.Max(enemyAttack - defense, 0); // defense is taken into account
 
         health -= damage; // health is subtracted based on enemy attack stats
+        
+        OnHealthChanged?.Invoke(health); //goes through every method to see what is calling the health value
 
         if (health <= 0) // prevents health from going below zero.
         {
+            OnDeath?.Invoke(); //delegate that invokes when death happens (in game manager)
             health = 0;
-            screl.GameOverScreen.SetActive(true);
-            screl.StoreMan.UIButtons.SetActive(true);
-            Time.timeScale = 0f; // pause game
         }
 
     }
-   
+    void Start()
+    {
+        // Ensure the health isn't 0 from the Inspector
+        if (health <= 0) health = 5; 
+
+        // Tell the UI/Delegates what the starting health is
+        OnHealthChanged?.Invoke(health);
+    }
     // Update is called once per frame
     void Update()
     {
+        
        try
         {
             if (healthText != null)

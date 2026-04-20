@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BladeShot", menuName = "Abilities/Blade")]
 public class BladeShot : Ability
 {
+
     [Header("Projectile Settings")]
     public GameObject projectilePrefab;
     public float projectileSpeed = 15f;
@@ -79,5 +80,12 @@ public class BladeShot : Ability
             Debug.Log("Blade upgraded! New Stats - Speed: " + projectileSpeed + ", Damage: " + damage + ", Size: " + projectileSize);
             soulUpgradeCost += 100; // Increase Soul cost for next upgrade
         }
+    }
+    public override void ResetAbility()
+    {
+        projectileSpeed = 15f;
+        damage = 10f;
+        projectileSize = 1f;
+        soulUpgradeCost = 100;
     }
 }

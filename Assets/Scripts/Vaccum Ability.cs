@@ -81,5 +81,10 @@ public class VaccumAbility : Ability
         }
 
     }
-    
+    public override void ResetAbility()
+    {
+        VaccumAOEDurration = 5;
+        cooldownTime = 20f;
+        soulUpgradeCost = 100;
+    }
 }

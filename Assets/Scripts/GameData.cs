@@ -7,6 +7,6 @@ public class GameData
     public int souls;
     public float exp;
     public float ultimate;
-    public float health;
+    public float health = 5;
 
 }

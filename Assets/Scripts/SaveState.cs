@@ -1,12 +1,15 @@
 using System.IO;
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class SaveState : MonoBehaviour
 {
     private string filePath; // Path to save/load the game data
     public GameData data; // This will hold the data we want to save/load
     public player Player; // Reference to the player script to sync data
+    public SceneReloader screl;
 
     void Awake()
     {
@@ -14,6 +17,7 @@ public class SaveState : MonoBehaviour
         filePath = Path.Combine(Application.persistentDataPath, "savegame.xml");
         Debug.Log(Application.persistentDataPath); // Log the persistent data path for debugging
         Debug.Log(filePath); // Log the full file path for debugging
+        screl = GetComponent<SceneReloader>();
     }
 
     void Start()
@@ -39,6 +43,10 @@ public class SaveState : MonoBehaviour
         data.exp = 0;
         data.ultimate = 0;
         data.health = 5;
+        foreach (Ability a in Player.abilities)
+        {
+            a.ResetAbility();
+        }
         // Create an XML serializer and write the data to the file
         XmlSerializer serializer = new XmlSerializer(typeof(GameData));
         using (FileStream stream = new FileStream(filePath, FileMode.Create))
@@ -47,6 +55,7 @@ public class SaveState : MonoBehaviour
         }
         LoadGame(); // Load the new game data to reset the player stats
         Debug.Log("New Game Started!");
+        screl.RestartScene();
     }
 
     public void SaveGame()
@@ -67,6 +76,8 @@ public class SaveState : MonoBehaviour
 
     public void LoadGame()
     {
+        try
+        {
         // Check if the file is there, if so read it and apply it to the player stats, if not create a new data object with default values
         if (File.Exists(filePath))
         {
@@ -81,6 +92,11 @@ public class SaveState : MonoBehaviour
         else
         {
             data = new GameData(); // Default values if no file exists
+        }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("Load System Failed" + e.Message);
         }
     }
 

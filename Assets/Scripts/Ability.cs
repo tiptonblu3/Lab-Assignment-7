@@ -13,6 +13,8 @@ public abstract class Ability : ScriptableObject
     
     public abstract void Activate(GameObject parent); // nothing in the base class, inherited objects will have the actual details.
     public abstract void Upgrade(); // similar to Activate
+
+    public abstract void ResetAbility(); // For new game
     
    
 }

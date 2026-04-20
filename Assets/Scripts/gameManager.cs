@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 
 public class gameManager : MonoBehaviour
 {
     public GameObject Enemy;
     public Transform Player;
+    public SceneReloader screl;
     
     [Header("Enemy Variables")]
     public float spawnDistance = 20f;
@@ -25,6 +27,10 @@ public class gameManager : MonoBehaviour
         Debug.Log("Dash ability Activated.");
     }
 
+    void Awake()
+    {
+        screl = GetComponent<SceneReloader>();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,10 +44,22 @@ public class gameManager : MonoBehaviour
         
     }
 
-    public void gameOver()
+    #region Game Over Sequence
+    private void OnEnable()
     {
-        Player.gameObject.SetActive(false); // deactivates player object when health is 0 
+        player.OnDeath += GameOver;
     }
+    private void OnDisable()
+    {
+        player.OnDeath -= GameOver;
+    }
+    private void GameOver()
+    {
+        screl.GameOverScreen.SetActive(true);
+            screl.StoreMan.UIButtons.SetActive(true);
+            Time.timeScale = 0f; // pause game
+    }
+    #endregion
 
     public void createEnemy()
     {

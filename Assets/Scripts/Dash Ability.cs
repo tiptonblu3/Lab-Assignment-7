@@ -36,5 +36,10 @@ public class DashAbility : Ability
         }
   
     }
+    public override void ResetAbility()
+    {
+        dashLength = 7f;
+        soulUpgradeCost = 100;
+    }
     
 }
