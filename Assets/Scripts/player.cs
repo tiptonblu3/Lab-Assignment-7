@@ -105,6 +105,12 @@ public class player : MonoBehaviour
         }
 
     }
+
+    public void Heal(float amount)
+    {
+        health += amount;
+        OnHealthChanged?.Invoke(health);
+    }
     void Start()
     {
         // Ensure the health isn't 0 from the Inspector
