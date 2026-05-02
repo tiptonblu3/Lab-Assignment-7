@@ -10,6 +10,7 @@ public class player : MonoBehaviour
 {
     [Header("Basic Stats")]
     public float health = 5;
+    public float maxHealth = 5;
     //public float attack;
     public float defense;
     public float speed = 5;
@@ -34,6 +35,13 @@ public class player : MonoBehaviour
     [Header("Shop Stuff")]
     public int souls;
     public float exp = 0;
+
+    [Header("Level System")]
+    public int level = 1;
+    public float expToNextLevel = 100f;
+    public float maxHealthPerLevel = 2f;
+    public float maxAttackPerLevel = 0.2f;
+    public float passiveExp = 1f; // amount of EXP gained passively per second
 
     [Header("GameObjects")]
     public Transform Enemy;
@@ -108,9 +116,35 @@ public class player : MonoBehaviour
 
     public void Heal(float amount)
     {
-        health += amount;
+        health = Mathf.Min(health + amount, maxHealth);
         OnHealthChanged?.Invoke(health);
     }
+
+    public void checkLevelUp()
+    {
+        while (exp >= expToNextLevel)
+        {
+            exp -= expToNextLevel;
+
+            level++;
+
+            attackSpeed += maxAttackPerLevel;
+            maxHealth += maxHealthPerLevel;
+            health = maxHealth; // optional full heal
+
+            expToNextLevel *= 1.5f;
+
+            OnHealthChanged?.Invoke(health);
+
+            Debug.Log("Level Up! Level " + level);
+        }
+    }
+
+    public void GainExp(float amount)
+    {
+        exp += amount;
+    }
+
     void Start()
     {
         // Ensure the health isn't 0 from the Inspector
@@ -135,6 +169,9 @@ public class player : MonoBehaviour
         {
             Debug.LogError("UI update failed: " + e.Message);
         }
+
+        checkLevelUp();
+        exp += passiveExp * Time.deltaTime; // Gain passive EXP over time
     }
 
     #region  Abilities 

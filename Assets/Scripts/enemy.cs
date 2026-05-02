@@ -22,6 +22,7 @@ public class enemy : MonoBehaviour
     public Collider collider;
     public GameObject Enemy;
     
+    
 
     [Header("Attack Stuff")]
     public float attackSpeed;
@@ -30,6 +31,14 @@ public class enemy : MonoBehaviour
     public int expMin = 1;
     public int expMax = 5;
     public GameObject expPrefab;
+
+    public GameObject healthUpgradePrefab;
+    public float healthDropChance = 0.08f;
+
+    [Header("Enemy Scaling")]
+    public float healthperminute = 2f;
+    public float attackperminute = 0.2f;
+
 
     private bool inVacuumAOEState = false;
     private float originalSpeed;
@@ -46,6 +55,16 @@ public class enemy : MonoBehaviour
         return attack;
     }
 
+    public void ScaleEnemy()
+    {
+        float minutes = Time.timeSinceLevelLoad / 60f;
+
+        health += healthperminute * minutes;
+        attack += attackperminute * minutes;
+
+        EnemyMonster.speed = speed; // Ensure speed is set to the base speed (can be modified later for different enemy types)
+    }
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -60,12 +79,14 @@ public class enemy : MonoBehaviour
         Player = playerObj.transform;
         player = playerObj.GetComponent<player>(); // adding these two lines ensures clones of enemy object can hit the player as well
 
-        
+        ScaleEnemy(); // placing it here causes enemies to scale every couple of minutes instead of it checking every frame in update
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
         if (Player != null && EnemyMonster != null)
         {
             EnemyMonster.SetDestination(Player.position); // immediately makes the enemy target the player and march towards them.
@@ -85,6 +106,7 @@ public class enemy : MonoBehaviour
             {
                 // In VacuumAOE state, enemy dies on contact with player
                 SpawnEXP();
+                TryDropHealth();
                 Destroy(this.gameObject);
             }
             else if (Time.time >= nextAttackTime) // checks for whether enemy can attack again based on cooldown
@@ -110,6 +132,7 @@ public class enemy : MonoBehaviour
         {
             health = 0;
             SpawnEXP();
+            TryDropHealth();
             Destroy(this.gameObject); //Enemy is dead, we have no use for it, so we destroy the game object.
 
         }
@@ -128,6 +151,7 @@ public class enemy : MonoBehaviour
             health = 0;
             EnemyMonster.enabled = false;
             SpawnEXP();
+            TryDropHealth();
             Destroy(this.gameObject); //Enemy is dead, we have no use for it, so we destroy the game object.
             
         }
@@ -149,6 +173,20 @@ public class enemy : MonoBehaviour
             spawnPos.y = transform.position.y; // Keep EXP on the same height as the enemy
             Instantiate(expPrefab, spawnPos, Quaternion.identity);
         }
+    }
+
+    private void TryDropHealth() // gives enemies chance to drop health upgrades on death
+    {
+        if (healthUpgradePrefab == null)
+        {
+            return;   
+        }
+
+        if (Random.value <= healthDropChance)
+    {
+        Instantiate(healthUpgradePrefab, transform.position, Quaternion.identity);
+    }
+
     }
         
     public void VacuumAOEState()

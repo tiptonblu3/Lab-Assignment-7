@@ -4532,6 +4532,10 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1261419532}
+    - target: {fileID: 1057807710313674802, guid: eef7c2e8213ce7f4aae53c2fa04d3d1c, type: 3}
+      propertyPath: maxAttackPerLevel
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3532769092371088622, guid: eef7c2e8213ce7f4aae53c2fa04d3d1c, type: 3}
       propertyPath: vacuumProjectile
       value: 

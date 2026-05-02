@@ -53,7 +53,7 @@ public class EXP : MonoBehaviour
             player playerScript = collider.GetComponent<player>();
             if (playerScript != null)
             {
-                playerScript.exp += expAmount;
+                playerScript.GainExp(expAmount);
                 playerScript.souls += soulsAmount;
                 //playerScript.ultimate += ultimateAmount;
             }

@@ -62,6 +62,10 @@ MonoBehaviour:
   expMin: 1
   expMax: 5
   expPrefab: {fileID: 7655012371899821470, guid: cee26fc5951e9ac48901f6d888a5ee6e, type: 3}
+  healthUpgradePrefab: {fileID: 2902775827183911713, guid: 12895c5c09c9d794a96e7c459c0a957a, type: 3}
+  healthDropChance: 0.08
+  healthperminute: 2
+  attackperminute: 0.2
 --- !u!195 &4739822849805755670
 NavMeshAgent:
   m_ObjectHideFlags: 0
