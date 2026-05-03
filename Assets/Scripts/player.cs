@@ -41,6 +41,7 @@ public class player : MonoBehaviour
     public float expToNextLevel = 100f;
     public float maxHealthPerLevel = 2f;
     public float maxAttackPerLevel = 0.2f;
+    public float bonusAttack  = 0f;
     public float passiveExp = 1f; // amount of EXP gained passively per second
 
     [Header("GameObjects")]
@@ -128,9 +129,11 @@ public class player : MonoBehaviour
 
             level++;
 
-            attackSpeed += maxAttackPerLevel;
+            bonusAttack += maxAttackPerLevel;
             maxHealth += maxHealthPerLevel;
             health = maxHealth; // optional full heal
+
+            maxAttackPerLevel *= 1.5f; // Increase the attack bonus for the next level
 
             expToNextLevel *= 1.5f;
 

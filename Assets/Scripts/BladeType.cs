@@ -70,7 +70,8 @@ public class BladeType : WeaponType
                 enemy e = BladeCollider.GetComponent<enemy>(); // this allows us to set it so that player can take enemy attack in consideration when getting attacked
                 if (e != null)
                 {
-                    e.BladeDamage(damage); // player gets damaged when making contact with the enemy's collider box.
+                    player p = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
+                    e.BladeDamage(damage + p.bonusAttack); // player gets damaged when making contact with the enemy's collider box.
                 }
                 
         }
