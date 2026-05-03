@@ -6,6 +6,8 @@ using System.Data.SqlTypes;
 public class gameManager : MonoBehaviour
 {
     public GameObject Enemy;
+    public GameObject SuperEnemy;
+    public GameObject SuperDuperEnemy;
     public Transform Player;
     public SceneReloader screl;
     
@@ -66,10 +68,22 @@ public class gameManager : MonoBehaviour
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
         Vector3 spawnPosition = Player.position + new Vector3(randomDirection.x, 0, randomDirection.y) * spawnDistance;
 
-        Instantiate(Enemy, spawnPosition, Quaternion.identity); 
+        float roll = Random.value; // change enemy spawn to be based on rolls
+        float minutes = Time.timeSinceLevelLoad / 60f;
 
-        
+        GameObject enemyToSpawn = Enemy;
 
+        if (minutes >= 2f && roll < 0.20f)
+        {
+            enemyToSpawn = SuperEnemy;
+        }
+
+        if (minutes >= 5f && roll < 0.05f)
+        {
+            enemyToSpawn = SuperDuperEnemy;
+        }
+
+        Instantiate(enemyToSpawn, spawnPosition, Quaternion.identity);
     }
 
 
