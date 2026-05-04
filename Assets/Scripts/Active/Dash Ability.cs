@@ -10,8 +10,28 @@ public class DashAbility : Ability
     public override void Activate (GameObject parent)
     {
         if (!canUse()) return; // if can use is false or not
+        
+        Vector3 dashDir = parent.transform.forward;
+        Vector3 finalPosition;
 
-        parent.transform.position += parent.transform.forward * dashLength; // makes player dash in direction they are facing. Could be changed for player input.
+        // 1. Raycast to see if a wall is in the way
+        // We start the ray slightly up (Vector3.up * 0.5f) so it doesn't hit the floor
+        if (Physics.Raycast(parent.transform.position + Vector3.up * 0.5f, dashDir, out RaycastHit hit, dashLength))
+        {
+            // 2. If we hit a wall, stop 0.6 units before the collision point
+            // This prevents the player from getting stuck inside the wall's collider
+            finalPosition = hit.point - (dashDir * 0.6f);
+            
+            // Keep the player's original Y position so they don't snap to the floor or ceiling
+            finalPosition.y = parent.transform.position.y;
+        }
+        else
+        {
+            // 3. No wall? Dash the full length
+            finalPosition = parent.transform.position + (dashDir * dashLength);
+        }
+
+        parent.transform.position = finalPosition;
         Stats.souls -= soulCost; // takes away souls
     }
 

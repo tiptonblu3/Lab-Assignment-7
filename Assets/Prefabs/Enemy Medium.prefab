@@ -62,7 +62,7 @@ MonoBehaviour:
   expMin: 3
   expMax: 8
   expPrefab: {fileID: 7655012371899821470, guid: cee26fc5951e9ac48901f6d888a5ee6e, type: 3}
-  healthUpgradePrefab: {fileID: 2902775827183911713, guid: 12895c5c09c9d794a96e7c459c0a957a, type: 3}
+  healthUpgradePrefab: {fileID: 2713829192864791192, guid: 4ece1c65de107b34b9f7de753e43a507, type: 3}
   healthDropChance: 0.08
   healthperminute: 2
   attackperminute: 0.2

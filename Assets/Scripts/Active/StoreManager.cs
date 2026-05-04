@@ -13,6 +13,12 @@ public class StoreManager : MonoBehaviour
     private float storeOpenTime;
     public bool shopOpened = false;
 
+    [Header("Jordon's References")]
+    public ResourceBar RecBar;
+    public Material WaitingMat;
+    public Material ReadyMat;
+    public Renderer rend;
+    public GameObject Station;
 
 
     private void InitializeWeapon()
@@ -24,6 +30,7 @@ public class StoreManager : MonoBehaviour
 
     void Start()
     {
+        Renderer rend = Station.GetComponent<Renderer>();
         player = GameObject.FindGameObjectWithTag("Player"); // Finds Player
         blade = GameObject.FindGameObjectWithTag("Blade"); // Finds Blade
         vacuum = GameObject.FindGameObjectWithTag("Vacuum"); // Finds Vacuum
@@ -31,13 +38,22 @@ public class StoreManager : MonoBehaviour
 
     void Update()
     {
-        if (!shopOpened && storeOpenTime > 0 && Time.time >= storeOpenTime + 1.5f)
+        if (RecBar.Levelup == true)
+        {
+            rend.material = ReadyMat;
+        }
+        else
+        {
+            rend.material = WaitingMat;
+        }
+        if (!shopOpened && storeOpenTime > 0 && Time.time >= storeOpenTime + 1.5f && RecBar.Levelup == true)
         {
             Shop.SetActive(true);
             UIButtons.SetActive(false);
             Time.timeScale = 0f; // Pause game
             Debug.Log("Store Opened");
             shopOpened = true;
+            RecBar.ClearLevelUpIndicator();
         }
     }
 
