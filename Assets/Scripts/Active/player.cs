@@ -110,6 +110,7 @@ public class player : MonoBehaviour
         if (health <= 0) // prevents health from going below zero.
         {
             OnDeath?.Invoke(); //delegate that invokes when death happens (in game manager)
+            Time.timeScale = 0f;
             health = 0;
         }
 

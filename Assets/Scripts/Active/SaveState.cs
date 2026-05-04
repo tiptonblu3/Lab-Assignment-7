@@ -39,6 +39,7 @@ public class SaveState : MonoBehaviour
     public void NewGame()
     {
         // Reset data to default values for a new game
+        Time.timeScale = 1f;
         data.souls = 0;
         data.exp = 0;
         data.ultimate = 0;
