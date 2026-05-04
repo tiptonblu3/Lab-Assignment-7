@@ -8,8 +8,14 @@ public class SceneReloader : MonoBehaviour
     public player player;
     public void RestartScene()
     {
-        GameOverScreen.SetActive(false);
-        StoreMan.UIButtons.SetActive(true);
+        if (GameOverScreen != null)
+        {
+            GameOverScreen.SetActive(false);
+        }
+        if (StoreMan != null)
+        {
+            StoreMan.UIButtons.SetActive(true);
+        }
         Time.timeScale = 1f; // Resume game
         SceneManager.LoadScene("RoombRoomb"); 
         
