@@ -76,7 +76,7 @@ MonoBehaviour:
   vacuumCost: 0
   bladeCollider: {fileID: 0}
   vacuumCollider: {fileID: 6656042707619191143, guid: e68cf3ba2ecf682499b853d04af5fb0a, type: 3}
-  vacuumProjectile: {fileID: 1566223936625193220, guid: e68cf3ba2ecf682499b853d04af5fb0a, type: 3}
+  vacuumProjectile: {fileID: 1317936171076228252, guid: e68cf3ba2ecf682499b853d04af5fb0a, type: 3}
   firePoint: {fileID: 8121441859228246595, guid: e68cf3ba2ecf682499b853d04af5fb0a, type: 3}
   lastShotTime: 0
   isProjectile: 0
@@ -112,7 +112,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.31107, y: 0.2218, z: 3.99819}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.100252, y: 2.100252, z: 2.100252}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1316736218773525627}
@@ -133,8 +133,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::player
   health: 5
+  maxHealth: 5
   defense: 0
-  speed: 5
+  speed: 7
   ultimate: 0
   rotationSpeed: 720
   abilities:
@@ -147,8 +148,15 @@ MonoBehaviour:
   rb: {fileID: 4249445729590629605}
   souls: 0
   exp: 0
+  level: 1
+  expToNextLevel: 100
+  maxHealthPerLevel: 2
+  maxAttackPerLevel: 0.2
+  bonusAttack: 0
+  passiveExp: 1
   Enemy: {fileID: 0}
   Manager: {fileID: 0}
+  screl: {fileID: 0}
   healthText: {fileID: 0}
   soulText: {fileID: 0}
 --- !u!114 &3576335299763836007
@@ -306,7 +314,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 61878a9890d1ec14689ec02cc165fd3e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 7368132b7cd3ad44cafc1cdbab52f093, type: 2}
+      objectReference: {fileID: 2100000, guid: aef8248317baed146b92beb090a3ed6e, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 61878a9890d1ec14689ec02cc165fd3e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2908661488186244680, guid: b11e13e1762e49d47bde6e56a71a8c9f, type: 3}
     - target: {fileID: 919132149155446097, guid: 61878a9890d1ec14689ec02cc165fd3e, type: 3}
       propertyPath: m_Name
       value: Roomba

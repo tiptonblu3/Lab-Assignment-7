@@ -11,7 +11,7 @@ public class SceneReloader : MonoBehaviour
         GameOverScreen.SetActive(false);
         StoreMan.UIButtons.SetActive(true);
         Time.timeScale = 1f; // Resume game
-        SceneManager.LoadScene("SampleScene"); 
+        SceneManager.LoadScene("RoombRoomb"); 
         
     }
 

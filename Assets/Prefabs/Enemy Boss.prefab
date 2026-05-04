@@ -50,7 +50,7 @@ MonoBehaviour:
   health: 30
   attack: 6
   defense: 4
-  speed: 0.5
+  speed: 1
   enemyCooldown: 2
   EnemyMonster: {fileID: 4602933945964948369}
   Player: {fileID: 0}
@@ -120,18 +120,6 @@ PrefabInstance:
     - target: {fileID: 375144199138733378, guid: 5d1bf64d6b82b6242a73b9fc9584a5c7, type: 3}
       propertyPath: m_Name
       value: BunnyProto2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044578952095873016, guid: 5d1bf64d6b82b6242a73b9fc9584a5c7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 8.608359
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044578952095873016, guid: 5d1bf64d6b82b6242a73b9fc9584a5c7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 8.608359
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044578952095873016, guid: 5d1bf64d6b82b6242a73b9fc9584a5c7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 8.608359
       objectReference: {fileID: 0}
     - target: {fileID: 1044578952095873016, guid: 5d1bf64d6b82b6242a73b9fc9584a5c7, type: 3}
       propertyPath: m_LocalPosition.x
