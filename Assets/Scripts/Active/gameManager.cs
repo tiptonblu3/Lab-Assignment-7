@@ -71,21 +71,30 @@ public class gameManager : MonoBehaviour
         Vector3 spawnPosition = Player.position + new Vector3(randomDirection.x, 0, randomDirection.y) * spawnDistance;
 
         float roll = Random.value; // change enemy spawn to be based on rolls
-        float minutes = Time.timeSinceLevelLoad / 60f;
+        float savedMinutes = PlayerPrefs.GetFloat("SavedGameTime", 0f);
+        float currentSessionMinutes = Time.timeSinceLevelLoad / 60f;
+        float totalMinutes = savedMinutes + currentSessionMinutes;
 
         GameObject enemyToSpawn = Enemy;
 
-        if (minutes >= 2f && roll < 0.20f)
+        if (totalMinutes >= 2f && roll < 0.20f)
         {
             enemyToSpawn = SuperEnemy;
         }
 
-        if (minutes >= 5f && roll < 0.05f)
+        if (totalMinutes >= 5f && roll < 0.05f)
         {
             enemyToSpawn = SuperDuperEnemy;
         }
 
         Instantiate(enemyToSpawn, spawnPosition, Quaternion.identity);
+    }
+
+    public void SaveProgression()
+    {
+        float minutes = Time.timeSinceLevelLoad / 60f;
+        PlayerPrefs.SetFloat("SavedGameTime", minutes);
+        PlayerPrefs.Save();
     }
 
 

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SaveState : MonoBehaviour
 {
+    public gameManager gameManager; // Reference to the game manager to access player stats
     private string filePath; // Path to save/load the game data
     public GameData data; // This will hold the data we want to save/load
     public player Player; // Reference to the player script to sync data
@@ -39,6 +40,11 @@ public class SaveState : MonoBehaviour
 
     public void NewGame()
     {
+        if (PlayerPrefs.HasKey("SavedGameTime"))
+        {
+            PlayerPrefs.DeleteKey("SavedGameTime");
+            PlayerPrefs.Save(); 
+        }
         // Reset data to default values for a new game
         Time.timeScale = 1f;
         data.souls = 0;
@@ -62,6 +68,7 @@ public class SaveState : MonoBehaviour
 
     public void SaveGame()
     {
+        gameManager.SaveProgression(); // Save the progression time to PlayerPrefs
         // Sync current player stats to our data container
         data.souls = Player.souls;
         data.exp = Player.exp;
