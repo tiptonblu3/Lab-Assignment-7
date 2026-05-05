@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using System.Collections;
 
 
 public class player : MonoBehaviour
@@ -53,6 +54,12 @@ public class player : MonoBehaviour
     [Header("UI References")]
     public TextMeshProUGUI healthText; // health text
     public TextMeshProUGUI soulText; // Souls text
+
+    [Header("Materials")]
+    public Material NormalMat;
+    public Material HurtMat;
+    public MeshRenderer PlayerRend;
+    private bool isHurt = false;
 
     private void OnMove(InputValue inputValue)
     {
@@ -104,7 +111,7 @@ public class player : MonoBehaviour
         float damage = Mathf.Max(enemyAttack - defense, 0); // defense is taken into account
 
         health -= damage; // health is subtracted based on enemy attack stats
-        
+        StartCoroutine(SwapRoutine());
         OnHealthChanged?.Invoke(health); //goes through every method to see what is calling the health value
 
         if (health <= 0) // prevents health from going below zero.
@@ -151,6 +158,7 @@ public class player : MonoBehaviour
 
     void Start()
     {
+        
         // Ensure the health isn't 0 from the Inspector
         if (health <= 0) health = 5; 
 
@@ -229,6 +237,27 @@ public class player : MonoBehaviour
     }
 
     #endregion
+
+    IEnumerator SwapRoutine()
+    {
+        // If we are already flashing, don't restart the logic or we'll overwrite the 'Normal' save
+        if (isHurt) yield break; 
+
+        isHurt = true;
+
+        // 1. Save and Swap
+        // Tip: Use sharedMaterial to avoid creating internal copies if you don't need them
+        NormalMat = PlayerRend.sharedMaterial; 
+        PlayerRend.material = HurtMat;
+
+        // 2. Wait
+        yield return new WaitForSeconds(1.0f);
+
+        // 3. Swap back
+        PlayerRend.material = NormalMat;
+        
+        isHurt = false; // Reset the gate
+    }
 
 
 

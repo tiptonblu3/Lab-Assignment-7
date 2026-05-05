@@ -15,6 +15,8 @@ public abstract class Ability : ScriptableObject
     public abstract void Upgrade(); // similar to Activate
 
     public abstract void ResetAbility(); // For new game
+
+    
     
    
 }

@@ -14,6 +14,8 @@ public class Settings : MonoBehaviour
     public Slider MusicSlider;
     public Slider SFXSlider;
 
+    public Pause pause;
+
 
     [Header("Audio Settings")]
     public AudioMixer mainMixer; // Drag your mixer here in the Inspector
@@ -31,7 +33,7 @@ public class Settings : MonoBehaviour
         SFXSlider.value = SavedSFX;
 
         // Apply the values to the mixer
-        ApplyVolume("MusicVolume", SavedMusic);
+        ApplyVolume("MasterVolume", SavedMusic);
         ApplyVolume("MusicVolume", SavedMusic);
         ApplyVolume("SFXVolume", SavedSFX);
     }
@@ -54,8 +56,10 @@ public class Settings : MonoBehaviour
     }
 
     // Helper method to handle the math and mixer application
-    private void ApplyVolume(string parameterName, float volume)
+    public void ApplyVolume(string parameterName, float volume)
     {
+        if (pause.IsPaused && parameterName == "SFXVolume") return;
+        
         float dB = Mathf.Log10(Mathf.Max(0.0001f, volume)) * 20;
         mainMixer.SetFloat(parameterName, dB);
     }
@@ -91,4 +95,20 @@ public class Settings : MonoBehaviour
     {
         SceneManager.LoadScene("Credits");
     }
+    public void SetPauseMute(bool isPaused)
+{
+    if (mainMixer == null) return; // Safety check
+
+    if (isPaused)
+    {
+        // -80f is true silence in Unity's Mixer
+        mainMixer.SetFloat("SFXVolume", -80f);
+    }
+    else
+    {
+        // Use the current slider value to recalculate the correct dB
+        // This ensures it returns to the user's preferred setting
+        ApplyVolume("SFXVolume", SFXSlider.value);
+    }
+}
 }

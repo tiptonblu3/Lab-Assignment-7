@@ -5,7 +5,7 @@ public class Pause : MonoBehaviour
 {
     public bool IsPaused;
     public GameObject PauseMenu;
-
+    public Settings settings;
     // Using the new Input System, we can set up an action for pausing the game.
     public InputAction pauseAction;
 
@@ -16,12 +16,12 @@ public class Pause : MonoBehaviour
         if (IsPaused)
         {
             Time.timeScale = 0f; // Pause the game
-            // Optionally, you can also show a pause menu here
+            settings.SetPauseMute(true);
         }
         else
         {
             Time.timeScale = 1f; // Resume the game
-            // Optionally, hide the pause menu here
+            settings.SetPauseMute(false);
         }
         
         if (PauseMenu != null)

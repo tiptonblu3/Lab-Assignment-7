@@ -19,6 +19,8 @@ public class StoreManager : MonoBehaviour
     public Material ReadyMat;
     public Renderer rend;
     public GameObject Station;
+    public Pause pause;
+    public Settings settings;
 
 
     private void InitializeWeapon()
@@ -53,7 +55,9 @@ public class StoreManager : MonoBehaviour
             Time.timeScale = 0f; // Pause game
             Debug.Log("Store Opened");
             shopOpened = true;
+            pause.IsPaused = true;
             RecBar.ClearLevelUpIndicator();
+            settings.SetPauseMute(true);
         }
     }
 
@@ -89,6 +93,7 @@ public class StoreManager : MonoBehaviour
         storeOpenTime = 0;
         Debug.Log("Store Closed");
         Time.timeScale = 1f; // Resume game
+        settings.SetPauseMute(false);
     }
 
     public void BuyVacuumUpgrade() // 

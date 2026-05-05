@@ -9,30 +9,33 @@ public class VaccumAbility : Ability
     public int VaccumAOEDurration = 5;
     public float cooldownTime = 20f;
     public int soulUpgradeCost = 100;
-
+    private float nextReadyTime;
 
     [System.NonSerialized] 
     private float lastUsedTime = -100f;
 
     public override bool canUse()
     {
-        bool hasSouls = Stats.souls >= soulCost;
-        bool isOffCooldown = Time.time >= lastUsedTime + cooldownTime;
-        return hasSouls && isOffCooldown;
+        return Time.time >= nextReadyTime;
     }
     public override void Activate(GameObject parent)
     {
             if (!canUse())
         {
-            Debug.Log("Not enough souls to use VacuumAOE!");
+            Debug.Log("Cooldown not finished");
             return;
         } 
+        nextReadyTime = Time.time + cooldownTime;
 
         lastUsedTime = Time.time;
-        Stats.souls -= soulCost;
 
         parent.GetComponent<MonoBehaviour>().StartCoroutine(VacuumRoutine(parent));
 
+    }
+
+    public float GetSecondsLeft()
+    {
+        return Mathf.Max(0, nextReadyTime - Time.time);
     }
 
     private IEnumerator VacuumRoutine(GameObject parent)
