@@ -31,6 +31,7 @@ public class enemy : MonoBehaviour
     public int expMin = 1;
     public int expMax = 5;
     public GameObject expPrefab;
+    public AudioSource audioSource;
 
     public GameObject healthUpgradePrefab;
     public float healthDropChance = 0.08f;
@@ -69,6 +70,7 @@ public class enemy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSource.Play();
         Debug.Log(EnemyMonster.isOnNavMesh);
         EnemyMonster.stoppingDistance = 0f;
         originalSpeed = EnemyMonster.speed; // Store original speed for later restoration
