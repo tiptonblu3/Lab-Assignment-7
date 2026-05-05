@@ -10946,7 +10946,7 @@ AudioSource:
   m_GameObject: {fileID: 2068560945}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -405058101891282870, guid: 9ff6e4e8f66f4984ea0b0c9b846b5948, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 8369cd0423fa5e649976996c03eba825, type: 3}
   m_PlayOnAwake: 1
@@ -11149,13 +11149,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f2af2f0ceafeb4c82eca76f6d85efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveState
+  gameManager: {fileID: 1385137634}
   data:
     souls: 0
     exp: 0
     ultimate: 0
     health: 0
-  Player: {fileID: 0}
-  screl: {fileID: 0}
+  Player: {fileID: 6251333995177159575}
+  screl: {fileID: 8915953062920831143}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
