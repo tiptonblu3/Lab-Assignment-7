@@ -90,6 +90,7 @@ public class StoreManager : MonoBehaviour
         Debug.Log("Store Closed");
         Time.timeScale = 1f; // Resume game
     }
+
     public void BuyVacuumUpgrade() // 
     {
         if (souls >= vacuumCost)

@@ -37,7 +37,7 @@ public class VaccumAbility : Ability
 
     private IEnumerator VacuumRoutine(GameObject parent)
     {
-        GameObject[] enemiesObjects = FindObjectsOfType<GameObject>();
+        GameObject[] enemiesObjects = FindObjectsByType<GameObject>();
         foreach (GameObject obj in enemiesObjects)
         {
             if (obj.CompareTag("Enemy"))
