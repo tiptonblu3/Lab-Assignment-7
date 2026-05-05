@@ -22,6 +22,7 @@ public class SaveState : MonoBehaviour
 
     void Start()
     {
+        
         // Find the player
         GameObject playerObj = GameObject.FindWithTag("Player");
         if (playerObj != null)
@@ -77,6 +78,7 @@ public class SaveState : MonoBehaviour
 
     public void LoadGame()
     {
+        Time.timeScale = 1f;
         try
         {
         // Check if the file is there, if so read it and apply it to the player stats, if not create a new data object with default values

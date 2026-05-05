@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RoombRoomb.unity
     guid: 10597226725ce6440a3b7246d19ded50
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: a24c27a34cf1bd84eba60b5ea8935dfa
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

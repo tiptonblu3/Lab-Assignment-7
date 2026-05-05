@@ -10,6 +10,7 @@ public class gameManager : MonoBehaviour
     public GameObject SuperDuperEnemy;
     public Transform Player;
     public SceneReloader screl;
+    public Settings settings;
     
     [Header("Enemy Variables")]
     public float spawnDistance = 20f;
@@ -32,6 +33,7 @@ public class gameManager : MonoBehaviour
     void Awake()
     {
         screl = GetComponent<SceneReloader>();
+        settings.inGame = true;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

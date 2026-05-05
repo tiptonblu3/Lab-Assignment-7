@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Settings : MonoBehaviour
 {
     [Header("UI References")]
     public GameObject settingsMenu;
+    public GameObject pauseMenu;
+    public bool inGame;
     public Slider MasterSlider;
     public Slider MusicSlider;
     public Slider SFXSlider;
@@ -56,12 +60,35 @@ public class Settings : MonoBehaviour
         mainMixer.SetFloat(parameterName, dB);
     }
 
-    public void OpenSettings() => settingsMenu.SetActive(true);
-    public void CloseSettings() => settingsMenu.SetActive(false);
+    public void OpenSettings()
+    {
+        if(inGame == true)
+      {
+        pauseMenu.SetActive(false);
+      } 
+
+        settingsMenu.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+      settingsMenu.SetActive(false); 
+      
+      if(inGame == true)
+      {
+        pauseMenu.SetActive(true);
+      }  
+
+    } 
 
     // Optional: Force a save to disk (Unity does this on Quit automatically)
     private void OnDisable()
     {
         PlayerPrefs.Save();
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
     }
 }

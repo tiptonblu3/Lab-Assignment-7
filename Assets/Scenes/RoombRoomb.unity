@@ -185,8 +185,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -637,7 +637,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 142608433}
-  - component: {fileID: 142608436}
   - component: {fileID: 142608435}
   - component: {fileID: 142608434}
   m_Layer: 5
@@ -832,8 +831,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1570,7 +1569,7 @@ GameObject:
   - component: {fileID: 268656039}
   - component: {fileID: 268656038}
   m_Layer: 5
-  m_Name: Upgrade Blade
+  m_Name: Upgrade Vaccum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2212,7 +2211,7 @@ GameObject:
   - component: {fileID: 336242553}
   - component: {fileID: 336242552}
   m_Layer: 5
-  m_Name: UpgradeVacuum
+  m_Name: UpgradeBlade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2416,7 +2415,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8915953062920831146}
         m_TargetAssemblyTypeName: SaveState, Assembly-CSharp
         m_MethodName: NewGame
         m_Mode: 1
@@ -2448,8 +2447,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e8e80c2320921e843a55a9cd8a178bf8, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2629,7 +2628,6 @@ RectTransform:
   - {fileID: 808420222}
   - {fileID: 1093715104}
   - {fileID: 1820054704}
-  - {fileID: 472739333}
   - {fileID: 647259150}
   m_Father: {fileID: 2055043944}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2651,7 +2649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1981132, g: 0.18970273, b: 0.18970273, a: 0.9372549}
+  m_Color: {r: 0.17254902, g: 0.32156864, b: 0.41568628, a: 0.74509805}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3104,7 +3102,7 @@ RectTransform:
   - {fileID: 118790769}
   - {fileID: 1792334249}
   - {fileID: 1882152764}
-  m_Father: {fileID: 414785757}
+  m_Father: {fileID: 2055043944}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3124,6 +3122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Settings
   settingsMenu: {fileID: 472739332}
+  pauseMenu: {fileID: 414785756}
+  inGame: 0
   MasterSlider: {fileID: 500017134}
   MusicSlider: {fileID: 676616948}
   SFXSlider: {fileID: 118790770}
@@ -3141,7 +3141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 1, a: 0.13333334}
+  m_Color: {r: 0.17254902, g: 0.32156864, b: 0.41568628, a: 0.74509805}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3433,8 +3433,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3632,8 +3632,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e8e80c2320921e843a55a9cd8a178bf8, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3897,6 +3897,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2055043944}
     m_Modifications:
+    - target: {fileID: 195776101248471246, guid: 445c2ad062b3dcb40959d8a2b3f4d170, type: 3}
+      propertyPath: m_Color.b
+      value: 0.84313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 195776101248471246, guid: 445c2ad062b3dcb40959d8a2b3f4d170, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 195776101248471246, guid: 445c2ad062b3dcb40959d8a2b3f4d170, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5058824
+      objectReference: {fileID: 0}
     - target: {fileID: 1056893784249751303, guid: 445c2ad062b3dcb40959d8a2b3f4d170, type: 3}
       propertyPath: player
       value: 
@@ -3996,6 +4008,22 @@ PrefabInstance:
     - target: {fileID: 5760155379685803338, guid: 445c2ad062b3dcb40959d8a2b3f4d170, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453540089715886617, guid: 445c2ad062b3dcb40959d8a2b3f4d170, type: 3}
+      propertyPath: m_Color.a
+      value: 0.8627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453540089715886617, guid: 445c2ad062b3dcb40959d8a2b3f4d170, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453540089715886617, guid: 445c2ad062b3dcb40959d8a2b3f4d170, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453540089715886617, guid: 445c2ad062b3dcb40959d8a2b3f4d170, type: 3}
+      propertyPath: m_Color.r
+      value: 0.34509805
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4101,7 +4129,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8915953062920831146}
         m_TargetAssemblyTypeName: SaveState, Assembly-CSharp
         m_MethodName: SaveGame
         m_Mode: 1
@@ -4405,8 +4433,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4623,10 +4651,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 924259572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddc566788ef0a3a4aa44fe912a67c35e, type: 3}
+  m_Script: {fileID: 11500000, guid: 25534c1dae266c744a77831f0f291146, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VaccumCostUI
-  Vaccum: {fileID: 11400000, guid: a678d43add66da64a9f0ccdb1c03b1c9, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::BladeCostUI
+  Blade: {fileID: 11400000, guid: 5f3698963eac5134099c609390ab7fcc, type: 2}
   scoreText: {fileID: 924259574}
 --- !u!1 &1003740336
 GameObject:
@@ -5144,7 +5172,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8915953062920831146}
         m_TargetAssemblyTypeName: SaveState, Assembly-CSharp
         m_MethodName: LoadGame
         m_Mode: 1
@@ -5176,8 +5204,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e8e80c2320921e843a55a9cd8a178bf8, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5632,7 +5660,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6251333995177159577}
         m_TargetAssemblyTypeName: Pause, Assembly-CSharp
         m_MethodName: OnPause
         m_Mode: 1
@@ -5664,8 +5692,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e8e80c2320921e843a55a9cd8a178bf8, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6489,8 +6517,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9003,8 +9031,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9189,8 +9217,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e8e80c2320921e843a55a9cd8a178bf8, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -10219,6 +10247,7 @@ RectTransform:
   - {fileID: 1252340214}
   - {fileID: 745654644}
   - {fileID: 414785757}
+  - {fileID: 472739333}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -10585,6 +10614,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132661809}
   m_CullTransparentMesh: 1
+--- !u!114 &2132661813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132661809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddc566788ef0a3a4aa44fe912a67c35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VaccumCostUI
+  Vaccum: {fileID: 11400000, guid: a678d43add66da64a9f0ccdb1c03b1c9, type: 2}
+  scoreText: {fileID: 2132661811}
 --- !u!1001 &1352379750192240032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10716,6 +10759,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1745879810161618239, guid: 9e81a9db5100ab54da6b509ef0defd08, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5036815092219146806, guid: 9e81a9db5100ab54da6b509ef0defd08, type: 3}
       propertyPath: m_Name
       value: TV_Console
@@ -10873,7 +10920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pause
   IsPaused: 0
-  PauseMenu: {fileID: 0}
+  PauseMenu: {fileID: 414785756}
   pauseAction:
     m_Name: Pause
     m_Type: 0
@@ -10948,9 +10995,17 @@ PrefabInstance:
       value: Game Manager
       objectReference: {fileID: 0}
     - target: {fileID: 3742498971895707453, guid: 50b06a68efc450d47a9b8e8c3c59d92f, type: 3}
+      propertyPath: screl
+      value: 
+      objectReference: {fileID: 8915953062920831143}
+    - target: {fileID: 3742498971895707453, guid: 50b06a68efc450d47a9b8e8c3c59d92f, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 6251333995177159570}
+    - target: {fileID: 3742498971895707453, guid: 50b06a68efc450d47a9b8e8c3c59d92f, type: 3}
+      propertyPath: settings
+      value: 
+      objectReference: {fileID: 472739334}
     - target: {fileID: 3742498971895707453, guid: 50b06a68efc450d47a9b8e8c3c59d92f, type: 3}
       propertyPath: SuperEnemy
       value: 
